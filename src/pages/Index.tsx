@@ -297,20 +297,20 @@ const Index = () => {
 
   // Sidebar Component
   const Sidebar = () => (
-    <div className="w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 p-6 flex flex-col">
-      <div className="flex items-center gap-3 mb-8">
-        <svg className="w-10 h-10 text-blue-600" viewBox="0 0 80 80" fill="none">
+    <div className="hidden md:flex w-48 lg:w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 p-4 lg:p-6 flex-col flex-shrink-0">
+      <div className="flex items-center gap-2 lg:gap-3 mb-6 lg:mb-8">
+        <svg className="w-8 h-8 lg:w-10 lg:h-10 text-blue-600" viewBox="0 0 80 80" fill="none">
           <path d="M20 15 L35 40 L20 65" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
           <path d="M40 15 L55 40 L40 65" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
         </svg>
-        <span className="text-2xl font-bold text-gray-900 dark:text-white">LyzrFlow</span>
+        <span className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">LyzrFlow</span>
       </div>
 
       <button
         onClick={handleNewProject}
-        className="w-full px-4 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-semibold flex items-center justify-center gap-2 mb-6"
+        className="w-full px-3 lg:px-4 py-2 lg:py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-semibold flex items-center justify-center gap-2 mb-4 lg:mb-6 text-sm lg:text-base"
       >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-4 h-4 lg:w-5 lg:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
         </svg>
         <span>New Project</span>
@@ -319,7 +319,7 @@ const Index = () => {
       <div className="mt-auto">
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
-          className="w-full p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors flex items-center gap-3"
+          className="w-full p-2 lg:p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors flex items-center gap-2 lg:gap-3 text-sm lg:text-base"
         >
           {isDarkMode ? (
             <>
@@ -344,72 +344,68 @@ const Index = () => {
   // Home View - Professional Dashboard
   if (view === 'home') {
     return (
-      <div className="h-screen w-screen flex bg-white dark:bg-gray-900 transition-colors">
+      <div className="h-screen w-screen flex bg-white dark:bg-gray-900 transition-colors overflow-hidden">
         <Sidebar />
-        <div className="flex-1 flex overflow-hidden">
-          {/* Left Column - Context (60%) */}
-          <div className="w-3/5 flex flex-col justify-center px-16 py-12">
-            <div className="max-w-3xl space-y-8">
+        <div className="flex-1 flex flex-col lg:flex-row overflow-auto">
+          {/* Left Column - Context */}
+          <div className="flex-1 lg:w-3/5 flex flex-col justify-center px-6 sm:px-8 md:px-12 lg:px-16 py-8 lg:py-12 overflow-y-auto">
+            <div className="max-w-4xl mx-auto space-y-6 lg:space-y-8">
               <div>
-                <h1 className="text-6xl font-bold text-gray-900 dark:text-white mb-4">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-3 lg:mb-4 leading-tight">
                   LyzrFlow AI Project Planner
                 </h1>
-                <p className="text-2xl text-gray-600 dark:text-gray-400">
+                <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-400">
                   Transform conversations into structured project plans
                 </p>
               </div>
 
-              <div className="space-y-6 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+              <div className="space-y-4 lg:space-y-6 text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed">
                 <p>
                   LyzrFlow revolutionizes project planning by converting natural conversations into comprehensive, 
                   industry-standard project documentation. Our AI-powered system guides you through an intelligent 
-                  dialogue, extracting key project details and automatically generating professional Gantt charts, 
-                  timelines, and resource allocations.
+                  dialogue, extracting key project details and automatically generating professional Gantt charts.
                 </p>
                 <p>
-                  The platform eliminates manual planning overhead by understanding your project requirements through 
-                  conversational input. Simply describe your goals, timeline, and team structure—our AI handles the 
+                  Simply describe your goals, timeline, and team structure—our AI handles the 
                   complexity of structuring tasks, identifying dependencies, and creating realistic schedules.
                 </p>
                 <p>
-                  From initial concept to deployment-ready documentation, LyzrFlow ensures your project plan is 
-                  comprehensive, accurate, and ready to share with stakeholders. Export professional PDF reports 
-                  with a single click.
+                  Export professional PDF reports with a single click.
                 </p>
               </div>
 
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Key Benefits</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="space-y-3 lg:space-y-4">
+                <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white">Key Benefits</h3>
+                <ul className="space-y-2 lg:space-y-3">
+                  <li className="flex items-start gap-2 lg:gap-3">
+                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span className="text-gray-700 dark:text-gray-300"><strong>Error-Free Planning:</strong> AI-validated task dependencies and realistic timelines</span>
+                    <span className="text-sm md:text-base text-gray-700 dark:text-gray-300"><strong>Error-Free Planning:</strong> AI-validated task dependencies</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-start gap-2 lg:gap-3">
+                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span className="text-gray-700 dark:text-gray-300"><strong>Industry-Standard Reporting:</strong> Professional Gantt charts and PDF exports</span>
+                    <span className="text-sm md:text-base text-gray-700 dark:text-gray-300"><strong>Industry-Standard Reporting:</strong> Professional Gantt charts and PDF exports</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-start gap-2 lg:gap-3">
+                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span className="text-gray-700 dark:text-gray-300"><strong>Intelligent Guidance:</strong> Conversational AI that asks the right questions</span>
+                    <span className="text-sm md:text-base text-gray-700 dark:text-gray-300"><strong>Intelligent Guidance:</strong> Conversational AI that asks the right questions</span>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
 
-          {/* Right Column - Action & Visual (40%) */}
-          <div className="w-2/5 flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-800 px-12">
-            <div className="text-center space-y-8">
+          {/* Right Column - Action & Visual */}
+          <div className="flex-1 lg:w-2/5 flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-800 px-6 sm:px-8 md:px-12 py-8 lg:py-12">
+            <div className="text-center space-y-6 lg:space-y-8 max-w-md">
               {/* Abstract Visual */}
-              <div className="mb-8">
-                <svg className="w-64 h-64 mx-auto" viewBox="0 0 200 200" fill="none">
+              <div className="mb-6 lg:mb-8">
+                <svg className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 mx-auto" viewBox="0 0 200 200" fill="none">
                   {/* Abstract flowchart representation */}
                   <circle cx="100" cy="40" r="15" className="fill-blue-600" />
                   <rect x="70" y="80" width="60" height="30" rx="4" className="fill-blue-500" />
@@ -424,25 +420,25 @@ const Index = () => {
               </div>
 
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3 lg:mb-4">
                   Ready to Start?
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 mb-8">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-6 lg:mb-8">
                   Begin your project planning journey with AI-powered assistance
                 </p>
               </div>
 
               <button
                 onClick={() => setView('chat')}
-                className="px-10 py-5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all font-semibold text-xl flex items-center gap-3 mx-auto shadow-xl hover:shadow-2xl hover:scale-105 transform"
+                className="px-8 sm:px-10 py-4 sm:py-5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all font-semibold text-lg sm:text-xl flex items-center gap-2 sm:gap-3 mx-auto shadow-xl hover:shadow-2xl hover:scale-105 transform"
               >
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                 </svg>
                 <span>Start New Project</span>
               </button>
 
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-6">
+              <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-4 lg:mt-6">
                 No signup required • Free to use • Export to PDF
               </p>
             </div>
@@ -605,35 +601,35 @@ const Index = () => {
           </div>
         )}
 
-        <header className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
-          <div className="flex items-center gap-4">
+        <header className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 flex-shrink-0">
+          <div className="flex items-center gap-2 sm:gap-4">
             <button
               onClick={() => setView('home')}
               className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-white/10 transition-colors"
               aria-label="Go back"
             >
-              <svg className="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
-            <h1 className="text-xl font-semibold text-gray-900 dark:text-white">New Project</h1>
+            <h1 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">New Project</h1>
           </div>
         </header>
 
-        <div className="flex-grow overflow-y-auto px-6 py-4 space-y-4">
+        <div className="flex-grow overflow-y-auto px-4 sm:px-6 py-4 space-y-4">
           {messages.length === 0 && (
-            <div className="flex flex-col items-center justify-center h-full space-y-6">
+            <div className="flex flex-col items-center justify-center h-full space-y-4 sm:space-y-6 px-4">
               <div className="text-center space-y-2">
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">Start Your Project</h2>
-                <p className="text-gray-600 dark:text-gray-400">Choose a suggestion or describe your project</p>
+                <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">Start Your Project</h2>
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">Choose a suggestion or describe your project</p>
               </div>
               
-              <div className="flex flex-wrap gap-3 justify-center max-w-2xl">
+              <div className="flex flex-wrap gap-2 sm:gap-3 justify-center max-w-2xl">
                 {suggestionChips.map((suggestion, index) => (
                   <button
                     key={index}
                     onClick={() => handleSuggestionClick(suggestion)}
-                    className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:border-blue-600 transition-colors"
+                    className="px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-full bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:border-blue-600 transition-colors"
                   >
                     {suggestion}
                   </button>
@@ -649,7 +645,7 @@ const Index = () => {
                   <button
                     key={index}
                     onClick={() => handleSuggestionClick(suggestion)}
-                    className="px-3 py-1.5 text-sm rounded-full bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:border-blue-600 transition-colors"
+                    className="px-2 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm rounded-full bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:border-blue-600 transition-colors"
                   >
                     {suggestion}
                   </button>
