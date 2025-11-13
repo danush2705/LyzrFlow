@@ -539,6 +539,7 @@ async def generate_pdf_report(plan: PlanResponse):
         )
 
 @app.get("/")
+@app.head("/")
 async def root():
-    """Health check endpoint"""
+    """Health check endpoint - supports both GET and HEAD requests"""
     return {"status": "ok", "message": "LyzrFlow API v2.0 - Professional Dashboard"}
